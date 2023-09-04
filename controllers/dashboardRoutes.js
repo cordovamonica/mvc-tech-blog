@@ -3,7 +3,7 @@ const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
-// GET all posts for dashboard
+// GET all posts for dashboard /dashboard
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
@@ -46,7 +46,7 @@ router.get('/', withAuth, (req, res) => {
             });
     });
 
-// GET one post for dashboard
+// GET one post for dashboard to edit dashboard/edit/:id
 router.get('/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
@@ -89,7 +89,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
         );
 });
 
-// GET new post for dashboard
+// GET new post for dashboard /dashboard/new
 router.get('/new', withAuth, (req, res) => {
     res.render('new-post', {
         loggedIn: req.session.loggedIn,
