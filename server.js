@@ -11,20 +11,20 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const sess = {
-    secret: process.env.SESSION_SECRET,
-    cookie: {
-        // Session will automatically expire in 10 minutes
-        expires: 10 * 60 * 1000
-    },
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
-};
+// const sess = {
+//     secret: process.env.SESSION_SECRET,
+//     cookie: {
+//         // Session will automatically expire in 10 minutes
+//         expires: 10 * 60 * 1000
+//     },
+//     resave: false,
+//     saveUninitialized: true,
+//     store: new SequelizeStore({
+//         db: sequelize
+//     })
+// };
 
-app.use(session(sess));
+// app.use(session(sess));
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
