@@ -1,0 +1,22 @@
+{{#if posts.length}}
+<section>
+    <div>
+        <h2>Welcome, {{username}}!</h2>
+        <p>Click on a post to view/edit</p>
+    </div>
+    {{#each posts as |post|}}
+    <input type="hidden" id="post-id" value="{{post.id}}">
+    <div>
+        <h3><a class="link" href="/dashboard/edit/{{id}}">{{post.title}}</a></h3>
+        </h3>
+    </div>
+    <button type="button" id="btn-delete">Delete</button>
+    {{/each}}
+
+</section>
+{{/if}}
+<button type="submit">
+    <a href="/dashboard/new">New Post</a>
+</button>
+
+<script src="../public/js/deletePost.js"></script>
